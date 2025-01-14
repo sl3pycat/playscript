@@ -1,7 +1,9 @@
 <html>
-  <script src="/ps.js">
+  <script src="/ps.js" title="Demo app" subtext="my own framework" theme="dark" accent="teal">
     let butt = ui.button(ui.icon("phone"))
     .on("click", eventData => alert("Hello!") )
-    ui.body.add(butt)
+    .add()
+    
+    ui.icon("phone").add()
   </script>
 </html>

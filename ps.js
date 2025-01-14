@@ -15,7 +15,7 @@ const playscript = {
 
 
 /*INJECT CORE SCRIPTS*/
-let coreScripts = ["element", "ui", "script"]
+let coreScripts = ["splash-screen", "enhancements", "script", "element", "ui", "theme"]
 coreScripts.forEach( scriptName => {
     let fullPath = new URL( `core/${scriptName}.js`, playscript.baseScript.src)
     playscript.injectScript( fullPath.href )
@@ -32,16 +32,26 @@ window.onload = async function AppReady(){
   ui.head = ui( document.head )
   ui.root = ui( document.documentElement )
   
-  const coreImports = ["subcore/icon", "ui/add", "ui/html", "ui/text", "ui/style", "ui/attr", "ui/on"]
+  const coreImports = ["subcore/icon", "ui/add", "ui/html", "ui/text", "ui/style", "ui/attr", "ui/on","ui/misc"]
+  
+  playscript.updateSplashScreenProgressBar(80)
   
   await scripts( coreImports , {
     baseScript: playscript.baseScript.src,
     append: dynamicExtension
   })
   
+  playscript.updateSplashScreenProgressBar(90)
+  ui.theme({
+    accent: playscript.manifest("accent") || "#e91e63",
+    preset: playscript.manifest("theme") || "light"
+  })
+  
   await script( playscript.baseScript.text, {
     type: "exec"
   })
   
+  playscript.updateSplashScreenProgressBar(100)
   console.timeEnd("PSJS v0.2")
+  document.querySelector("splash-screen").remove()
 }

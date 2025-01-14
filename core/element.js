@@ -13,3 +13,6 @@ const PSElement = function( element = "unknown", children = [], classList = "" )
   
   return this
 }
+
+
+playscript.updateSplashScreenProgressBar(40)

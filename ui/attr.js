@@ -8,14 +8,14 @@ PSElement.prototype.attr = function( property, value ){
       this.attr( AttributeName, value)
   }
   
-  
-  
-  if( getAttributeValue ) return this.raw.getAttribute( property )
-  else if( deleteAttribute ) this.raw.removeAttribute( property )
   if( propertyArgumentIsObject ) {
     let keyPairs = Object.entries( property )
     keyPairs.forEach( setAttributeFromKeyPair )
   }
+  
+  if( getAttributeValue ) return this.raw.getAttribute( property )
+  else if( deleteAttribute ) this.raw.removeAttribute( property )
+  
   else {
     this.raw.setAttribute( property, value)
   }

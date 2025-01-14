@@ -39,3 +39,5 @@ const script = async function( scriptPath = "", options = {}){
 const scripts = async function( scripts, options){
   return await Promise.all( scripts.map( singleScript => script( singleScript, options )))
 }
+
+playscript.updateSplashScreenProgressBar(30)

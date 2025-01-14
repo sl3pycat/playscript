@@ -19,3 +19,6 @@ const ui = new Proxy( function UIBuilder(element = "", children = [], classList 
     return true
   }
 })
+
+
+playscript.updateSplashScreenProgressBar(50)
