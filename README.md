@@ -5,7 +5,7 @@ A JavaScript framework designed to bring the UI to the logic with ðŸ’«flaire!!ðŸ
 A simple hello world:
 ```html
 <html>
-  <script src="path/to/ps.js">
+  <script src="https://cdn.jsdelivr.net/gh/sl3pycat/playscript@master/ps.min.js">
     let butt = ui.button("press me")
     .on("click", eventData => alert("Hello!") )
     ui.body.add(butt)

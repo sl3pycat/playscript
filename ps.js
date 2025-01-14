@@ -1,4 +1,4 @@
-console.time("PSJS v0.1")
+console.time("PSJS v0.2")
 
 const playscript = {
   baseScript: document.currentScript,
@@ -26,20 +26,22 @@ coreScripts.forEach( scriptName => {
 /*WHEN APP IS READY*/
 window.onload = async function AppReady(){
   
+  const dynamicExtension = location.hostname == "localhost"? ".js": ".min.js"
+  
   ui.body = ui( document.body )
   ui.head = ui( document.head )
   ui.root = ui( document.documentElement )
   
-  const coreImports = ["ui/add", "ui/html", "ui/text", "ui/style", "ui/attr", "ui/on"]
+  const coreImports = ["subcore/icon", "ui/add", "ui/html", "ui/text", "ui/style", "ui/attr", "ui/on"]
   
   await scripts( coreImports , {
     baseScript: playscript.baseScript.src,
-    append: ".js"
+    append: dynamicExtension
   })
   
   await script( playscript.baseScript.text, {
     type: "exec"
   })
   
-  console.timeEnd("PSJS v0.1")
+  console.timeEnd("PSJS v0.2")
 }

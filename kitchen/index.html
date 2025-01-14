@@ -1,10 +1,7 @@
-<!DOCTYPE html>
 <html>
   <script src="/ps.js">
-    let butt = ui.button("press me")
-    .on("click", function() {
-  this.text("youve pressed me dear sir!!")
-})
+    let butt = ui.button(ui.icon("phone"))
+    .on("click", eventData => alert("Hello!") )
     ui.body.add(butt)
   </script>
 </html>
