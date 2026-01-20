@@ -10,11 +10,22 @@ app.parse = function Parse(json, target){
   //handles single entries (main code)
   if(typeof json === "object" && json !== null){
     
+    //cache json keys
+    const jsonKeys = Object.keys(json).filter(entry => {
+      if(entry.startsWith("add.")){
+        //create a new element
+        target = app.definitions["add."](entry.split(".")[1], json[entry], target)
+        return false
+      }
+      return true
+    })
+    
+    //handle target resets
+    
     //handle definitions
     //TODO: Optimise code please
-    Object.keys(app.definitions)
+    return Object.keys(app.definitions)
     .forEach(entry => {
-      const jsonKeys = Object.keys(json)
       
       //cluster definitions
       if(entry.endsWith("."))return jsonKeys.filter(name=>name.includes(".")&&name.startsWith(entry)).map(name=>{
@@ -31,6 +42,6 @@ app.parse = function Parse(json, target){
   
   
   
-  //TODO: handle other data types.
-  
+  //all other data types are just overwritten
+  target.innerText = String(json)
 }
