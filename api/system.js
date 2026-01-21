@@ -1,4 +1,4 @@
-app.definitions["sys."] = function(extension, value, target){
+psjs.definitions["sys."] = function(extension, value, target){
   
   //default system alert
   if(extension == "alert")return alert(value)
