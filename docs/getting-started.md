@@ -15,3 +15,16 @@ All you need to do is add a script tag pointing to the latest `ps.js` release an
 
 ---
 
+### More docs
+#### APIs
+- [system](api/system.md)
+
+#### Node
+- [core](node/core.md)
+- [style](node/style.md)
+
+
+#### Misc
+- [todo](todo.md)
+
+---

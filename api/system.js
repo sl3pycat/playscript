@@ -1,9 +1,9 @@
-psjs.definitions["sys."] = function(extension, value, target){
+psjs.define("sys",(target, value, extension, item)=>{
   
   //default system alert
-  if(extension == "alert")return alert(value)
+  if(extension == "alert")alert(value)
   
   //system console
   if(["log","warn","error"].includes(extension))console[extension](value)
   
-}
+})

@@ -4,14 +4,29 @@
       "title":"Kitchen App",
       "body":[
         {
-          "add.button":"mbutt",
-          "on.click":"you pressed me!!",
-          "id":"butt"
+          "add":"button",
+          "set.text":"hello joe!",
+          "id":"butt",
+          "set":{
+            "add":"img",
+            "src":"//google.com/fav.ico"
+          }
         },
         {
-          "add.p":"hello guys!!",
-          "on.click":{"sys.alert":"pressed the para!!"}
+          "target":"button",
+          "on.click":"hi",
+          "style.background":"blue"
+          
+        },
+        
+        {
+          "style":"button",
+          "color":"red"
+        },
+        {
+          "style":"background:magenta"
         }
+        
       ]
     }
   </script>
@@ -25,6 +40,9 @@
   
   <!-- node -->
   <script src="node/core.js"></script>
+  <script src="node/style.js"></script>
+  <script src="node/set.js"></script>
+  <script src="node/events.js"></script>
   
   
   <script src="core/post-init.js"></script>

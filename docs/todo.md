@@ -2,7 +2,8 @@ TODO
 ---
 
 ### Bugs
-
+- global styles dont support styles with the `:` characters like `button:hover`
+- 
 
 ---
 
@@ -17,4 +18,9 @@ TODO
 ---
 
 ### Pending revisions
-- parse.item-handler.js*
+
+
+---
+
+### Untested
+- `set.parent`

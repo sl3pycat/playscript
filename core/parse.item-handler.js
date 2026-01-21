@@ -1,31 +1,53 @@
-psjs.parseItem= function(psjsItem, target){
-  //cache json keys and create a new element if its a creation block
-  const jsonKeys = Object.keys(psjsItem).filter(entry => {
-      if(entry.startsWith("add.")){
-        target = psjs.definitions["add."](entry.split(".")[1], psjsItem[entry], target)
-        return false
-      }
-      return true
-  })
+psjs.parse_item = (psjs_item, target)=>{
+  //creates a new element
+  if(psjs_item.create)target = document.createElement(psjs_item.add)
+  
+  
+  //creates a new element and adds it to the dom
+  if(psjs_item.add){
+    const temporary_element = document.createElement(psjs_item.add)
+    target.appendChild(temporary_element)
+    target = temporary_element
+  }
+  
+  
+  //moves element to a new target
+  if(psjs_item.target){
+    const new_target = document.querySelector(psjs_item.target)
+    //if its a newly created element
+    if(psjs_item.add){
+      //if a target exists
+      if(new_target)new_parent.appendChild(target)
+    } else {
+      //if its not a new element then its a ref to an existing target, empties the psjs_item if no target is found to avoid failing at definitions
+      if(new_target)target = new_target
+      else psjs_item = {}
+    }
     
-    
-    //handle definitions
-    //TODO: Optimise code please
-    const defs = Object.keys(psjs.definitions)
-    defs.forEach(entry => {
-      
-      //cluster definitions
-      if(entry.endsWith("."))return jsonKeys.filter(name=>name.includes(".")&&name.startsWith(entry)).map(name=>{
-        psjs.definitions[entry](name.split(".")[1], psjsItem[name], target)
-      })
-      
-      //regular definitions
-      if(jsonKeys.includes(entry))return psjs.definitions[entry](psjsItem[entry], target)
-      
-    })
-    
-    //post parsing definitions set regular attributes
-    return jsonKeys.forEach(entry=>{
-      if(!(defs.includes(entry) || entry.includes(".")))target.setAttribute(entry, psjsItem[entry])
-    })
+  }
+  
+  //delete supers from definition
+  delete psjs_item.add
+  delete psjs_item.create
+  delete psjs_item.target
+  
+  
+  //execute primary functions
+  for(const key in psjs_item){
+    const [name, extension] = key.split(".")
+    if(psjs.primary_definitions[name])psjs.primary_definitions[name](target, psjs_item[key], extension, psjs_item)
+  }
+  
+  
+  //execute secondary functions
+  for(const key in psjs_item){
+    const [name, extension] = key.split(".")
+    if(psjs.secondary_definitions[name])psjs.secondary_definitions[name](target, psjs_item[key], extension, psjs_item)
+  }
+  
+  //handle regular html attributes
+  for(const key in psjs_item){
+    const [name, extension] = key.split(".")
+    if(!(psjs.primary_definitions[name]||psjs.secondary_definitions[name]))target.setAttribute(key, psjs_item[key])
+  }
 }

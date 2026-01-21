@@ -8,7 +8,7 @@ psjs.parse = function Parse(json, target){
   
   
   //handles single entries @core/parse.item-handler.js
-  if(typeof json === "object" && json !== null)return psjs.parseItem(json, target)
+  if(typeof json === "object" && json !== null)return psjs.parse_item(json, target)
   
   
   
