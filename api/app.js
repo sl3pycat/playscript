@@ -1,4 +1,4 @@
-psjs.define("sys",(target, value, extension, item)=>{
+psjs.define("app",(target, value, extension, item)=>{
   
   //default system alert
   if(extension == "alert")alert(value)

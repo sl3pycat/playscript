@@ -1,0 +1,8 @@
+{
+  "add":"button",
+  "set":"press me",
+  "on.click":{
+    "app.alert":"hello world!!",
+    "set.text":"press me again to see the message"
+  }
+}
