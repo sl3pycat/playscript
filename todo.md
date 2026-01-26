@@ -16,19 +16,15 @@ TODO
 - add `import.js` `import.md` `import.css` `import.html` `import.txt`
 - update import to accept multiple urls
 - make import support dynamic links
+- add an origin tag to nodes that import json for future dynamic link scoping (will possibly be used by libs on external servers n stuff)
 
 
 ---
 
 ### Suggestions
-
+- Create a custom fetch handler for fetching text based files
 
 ---
 
 ### Pending revisions
-
-
----
-
-### Untested
-- `set.parent`
+- import*
