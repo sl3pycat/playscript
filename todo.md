@@ -13,10 +13,10 @@ TODO
 - set favicon default to /fav.ico
 - add themes light, dark, system and oled with system being the default (system being the one the os prefers)
 - add accent color, default #e91e63 (used by buttons and other ui elements)
-- add `import` primary definition to import external jsons
-- add node: `set.text` `set.html` `set.innertext` `set.innerhtml` `set.outertext` `set.outerhtml`
-- add node: `insert.text` `insert.html` `insert.textbefore` `insert.textafter` `insert.textstart` `insert.textend` `insert.htmlbefore` `insert.htmlafter` `insert.htmlstart` `insert.htmlend`
-- 
+- add `import.js` `import.md` `import.css` `import.html` `import.txt`
+- update import to accept multiple urls
+- make import support dynamic links
+
 
 ---
 
