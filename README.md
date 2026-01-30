@@ -4,8 +4,7 @@ A dynamic web app framework for writing UI, logic and styles completely in JSON 
 a hello world example:
 ```json
 {
-  "add":"button",
-  "set.text":"press me",
+  "add.button":"press me",
   "on.click":{"app.alert":"Hello!"}
 }
 ```

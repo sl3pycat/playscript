@@ -1,14 +1,19 @@
 psjs.parse_item = (psjs_item, target)=>{
-  //creates a new element
-  if(psjs_item.create)target = document.createElement(psjs_item.add)
   
-  
-  //creates a new element and adds it to the dom
-  if(psjs_item.add){
-    const temporary_element = document.createElement(psjs_item.add)
-    target.appendChild(temporary_element)
-    target = temporary_element
-  }
+  Object.keys(psjs_item).forEach(entry=>{
+    if(entry.startsWith("create.")){
+      target = document.createElement(entry.split(".")[1])
+      psjs.parse(psjs_item[entry],target)
+    }
+    
+    if(entry.startsWith("add.")){
+      const temporary_element = document.createElement(entry.split(".")[1])
+      target.appendChild(temporary_element)
+      target = temporary_element
+      psjs.parse(psjs_item[entry],target)
+      
+    }
+  })
   
   
   //moves element to a new target

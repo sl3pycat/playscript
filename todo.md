@@ -8,21 +8,20 @@ TODO
 ---
 
 ### Roadmap
-- add keyframes animations
-- set default meta charset and initial viewport tags
-- set favicon default to /fav.ico
-- add themes light, dark, system and oled with system being the default (system being the one the os prefers)
-- add accent color, default #e91e63 (used by buttons and other ui elements)
-- add `import.js` `import.md` `import.css` `import.html` `import.txt`
-- update import to accept multiple urls
-- make import support dynamic links
-- add an origin tag to nodes that import json for future dynamic link scoping (will possibly be used by libs on external servers n stuff)
+- @node/style add keyframe animations
+- @core/meta set default meta charset and initial viewport tags
+- @core/meta set favicon default to /fav.ico
+- @api/theme add themes light, dark, system and oled with system being the default (system being the one the os prefers)
+- @api/theme add accent color, default #e91e63 (used by buttons and other ui elements)
+- @api/import update import to accept multiple urls
+- @api/import make import support dynamic links
+- @api/import add an origin tag to nodes that import json for future dynamic link scoping (will possibly be used by libs on external servers n stuff)
 
 
 ---
 
 ### Suggestions
-- Create a custom fetch handler for fetching text based files
+- @api/import instead of using extensions on the import property, check the url extension and process it accordingly, like checking if a link ends with .json or such, ofcourse avoid parameters added to links.
 
 ---
 
